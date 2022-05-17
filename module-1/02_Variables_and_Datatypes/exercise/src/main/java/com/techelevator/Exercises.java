@@ -26,36 +26,53 @@ public class Exercises {
         3. 3 raccoons are playing in the woods. 2 go home to eat dinner. How
         many raccoons are left in the woods?
         */
-
+		int raccoonsInWoods = 3;
+		int raccoonsThatGoHome = 2;
+		int raccoonsLeft = raccoonsInWoods - raccoonsThatGoHome;
 
         /* Exercise 4
         4. There are 5 flowers and 3 bees. How many less bees than flowers?
         */
 
+		int flowers = 5;
+		int bees = 3;
+		int beesLessThanFlowers = flowers - bees;
 
         /* Exercise 5
         5. 1 lonely pigeon was eating breadcrumbs. Another pigeon came to eat
         breadcrumbs, too. How many pigeons are eating breadcrumbs now?
         */
 
+		int lonelyPigeon = 1;
+		int incomingPigeons = 1;
+		int pigeonsTogether = lonelyPigeon + incomingPigeons;
 
         /* Exercise 6
         6. 3 owls were sitting on the fence. 2 more owls joined them. How many
         owls are on the fence now?
         */
 
+		int sittingOwls = 3;
+		int incomingOwls = 2;
+		int totalSittingOwls = sittingOwls + incomingOwls;
 
         /* Exercise 7
         7. 2 beavers were working on their home. 1 went for a swim. How many
         beavers are still working on their home?
         */
 
+		int workingBeavers = 2;
+		int swimmingBeavers = 1;
+		int beaversLeft = workingBeavers - swimmingBeavers;
 
         /* Exercise 8
         8. 2 toucans are sitting on a tree limb. 1 more toucan joins them. How
         many toucans in all?
         */
 
+		int sittingToucans = 2;
+		int incomingToucans = 1;
+		int totalToucans = sittingToucans + incomingToucans;
 
         /* Exercise 9
         9. There are 4 squirrels in a tree with 2 nuts. How many more squirrels
