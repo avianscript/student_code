@@ -24,6 +24,9 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50) ➔ false
      */
     public boolean acceptPackage(int weightPounds) {
+        if (weightPounds <= MAX_WEIGHT_POUNDS) {
+            return true;
+        }
         return false;
     }
 
@@ -41,9 +44,13 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches) {
+        if (weightPounds > MAX_WEIGHT_POUNDS) {
+            return false;
+        } else if ((lengthInches * widthInches * heightInches) <= MAX_CUBIC_INCHES) {
+            return true;
+        }
         return false;
     }
-
     /*
     All was well until a customer showed up with a 16-foot garden hose laid out straight in a 2x2x194 inch shipping box.
     The package was less than the weight and cubic foot restrictions, but at over 16 feet long,
@@ -64,6 +71,17 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10, true) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches, boolean isSurchargePaid) {
+        if (weightPounds > MAX_WEIGHT_POUNDS) {
+            return false;
+        } else if ((lengthInches * widthInches * heightInches) > MAX_CUBIC_INCHES) {
+            return false;
+        } else if (weightPounds <= MAX_WEIGHT_POUNDS && (lengthInches > MAX_DIMENSION_INCHES || widthInches > MAX_DIMENSION_INCHES || heightInches > MAX_DIMENSION_INCHES) && !isSurchargePaid) {
+            return false;
+        } else if (weightPounds <= MAX_WEIGHT_POUNDS && (lengthInches > MAX_DIMENSION_INCHES || widthInches > MAX_DIMENSION_INCHES || heightInches > MAX_DIMENSION_INCHES) && isSurchargePaid) {
+            return true;
+        } else if (weightPounds <= MAX_WEIGHT_POUNDS && (lengthInches <= MAX_DIMENSION_INCHES || widthInches <= MAX_DIMENSION_INCHES || heightInches <= MAX_DIMENSION_INCHES) && !isSurchargePaid) {
+            return true;
+        }
         return false;
     }
 }
