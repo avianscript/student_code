@@ -441,7 +441,9 @@ public class Exercises {
         albums will she need if there are 480 pictures?
         */
 
-		
+		int totalPhotos = 480;
+		int photosPerAlbum = 20;
+		int albumsNeeded = totalPhotos / photosPerAlbum;
 
         /* Exercise 48
         48. Joe, Susie’s brother, collected all 94 trading cards scattered in his
@@ -450,6 +452,10 @@ public class Exercises {
         the unfilled box?
         */
 
+		int totalTradingCards = 94;
+		int cardsPerFullBox = 8;
+		int cardBoxesFilled = totalTradingCards / cardsPerFullBox + 1;
+		int cardsInLastBox = totalTradingCards % cardsPerFullBox;
 
         /* Exercise 49
         49. Susie’s father repaired the bookshelves in the reading room. If he has
@@ -457,12 +463,18 @@ public class Exercises {
         how many books will each shelf contain?
         */
 
+		int booksInLibrary = 210;
+		int goodShelves = 10;
+		int booksPerShelf = booksInLibrary / goodShelves;
 
         /* Exercise 50
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
 
+		double bakedCroissants = 17.0;
+		double numGuests = 7.0;
+		double croissantsPerGuest = bakedCroissants / numGuests;
 
 	    /* Exercise 51
 	    51. Bill and Jill are house painters. Bill can paint a 12 x 14 room in 2.15 hours, while Jill averages
@@ -470,6 +482,10 @@ public class Exercises {
 	    Hint: Calculate the hourly rate for each painter, combine them, and then divide the total walls in feet by the combined hourly rate of the painters.
 	    */
 
+		double billRoomsPerHour = 1 / 2.15;
+		double jillRoomsPerHour = 1 / 1.90;
+		double combinedTimePerRoom = 1 / (billRoomsPerHour + jillRoomsPerHour);
+		double timeToPaintFive = combinedTimePerRoom * 5;
 
 	    /* Exercise 52
 	    52. Create and assign variables to hold a first name, last name, and middle initial. Using concatenation,
@@ -479,12 +495,21 @@ public class Exercises {
 		Example: "John", "Smith, "D" —> "Smith, John D."
 	    */
 
+		String firstName = "Grace";
+		String lastName = "Hopper";
+		String middleInitial = "B";
+		String fullName = lastName + ", " + firstName + " " + middleInitial +".";
+
+
 
 	    /* Exercise 53
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
 	    What percentage of the trip as a whole number has been completed?
 	    */
 
+		int distanceNYToChicago = 800;
+		int distanceTraveled = 537;
+		int percentTraveled = (distanceTraveled * 100) / distanceNYToChicago;
 	}
 
 }
