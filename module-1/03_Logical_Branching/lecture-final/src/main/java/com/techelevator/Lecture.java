@@ -121,7 +121,7 @@ public class Lecture {
     12. Now write the above using the Ternary operator ?:. If you're not sure what this is, you can Google it.
     */
     public String returnFizzIfThreeUsingTernary(int number) {
-        String result= number == 3 ? "Fizz" : "";
+        String result = number == 3 ? "Fizz" : "";
         return result;
     }
 
