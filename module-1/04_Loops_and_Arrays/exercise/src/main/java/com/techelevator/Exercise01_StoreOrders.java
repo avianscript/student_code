@@ -43,7 +43,7 @@ public class Exercise01_StoreOrders {
 	 createOrder() → [10, 40, 31, 41]
      */
     public int[] createOrder() {
-        return new int[]{10, 40, 31, 41};
+        return new int[] {10, 40, 31, 41};
     }
 
     /*
@@ -82,9 +82,6 @@ public class Exercise01_StoreOrders {
     getCheesePizzaRevenue([11, 21]) → 0
      */
     public int getCheesePizzaRevenue(int[] orders) {
-        int smallCheese = 0;
-        int mediumCheese = 0;
-        int largeCheese = 0;
         int revenue = 0;
         for (int i = 0; i < orders.length; i++) {
             if (orders[i] == 10) {
