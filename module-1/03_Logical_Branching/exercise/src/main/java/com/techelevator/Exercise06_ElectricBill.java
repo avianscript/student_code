@@ -72,8 +72,17 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, 120) ➔ -2.0
      */
     public double calculateElectricBill(double unitsUsed, double unitsReturned) {
-        return 0;
-       
+        if (unitsReturned > unitsUsed) {
+            return (unitsUsed - unitsReturned) * 0.20;
+        } else if (unitsReturned == unitsUsed) {
+            return 0;
+        } else if (unitsReturned > 0 && unitsUsed - unitsReturned <= 100) {
+            return ((unitsUsed - unitsReturned) * 0.20) * 0.95;
+        } else if (unitsUsed - unitsReturned > 100 && unitsReturned > 0) {
+            return ((100 * BASE_RATE) + (((unitsUsed - unitsReturned) - EXCESS_UNITS_LIMIT) * 0.25)) * 0.95;
+        } else if (unitsUsed > 100 && unitsReturned == 0) {
+            return (100 * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * 0.25);
+        }
+        return unitsUsed * BASE_RATE;
     }
-
 }
