@@ -6,7 +6,7 @@ public class Lecture {
 
     public void examples() {
         // for loop [3 iterations]
-//        forLoopExample(3);
+        //forLoopExample(3);
 
         // while loop [5 iterations]
 //        whileLoopExample(5);
