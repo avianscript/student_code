@@ -36,7 +36,11 @@ int highestTemperatureValue = forecastTemperatures[0];
        }
    }
         System.out.println("The highest temperature is " + highestTemperatureValue);
-        System.out.println("The highest temperature is in " + (highestTemperatureIndex + 1) + " days");
-
+        if (highestTemperatureIndex == 0) {
+            System.out.println("The highest temperature is tomorrow");
+        }
+        if (highestTemperatureIndex >= 1) {
+            System.out.println("The highest temperature is in " + (highestTemperatureIndex + 1) + " days");
+        }
     }
 }
