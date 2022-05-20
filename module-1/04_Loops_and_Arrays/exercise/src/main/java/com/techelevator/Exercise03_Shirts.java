@@ -67,6 +67,12 @@ public class Exercise03_Shirts {
     placeRequest([]) → false
      */
     public boolean placeRequest(char[] order) {
+
+        for (int i = 0; i < order.length; i++){
+            if (order[i] == 'S') {
+                return true;
+            }
+        }
         return false; 
     }
 }

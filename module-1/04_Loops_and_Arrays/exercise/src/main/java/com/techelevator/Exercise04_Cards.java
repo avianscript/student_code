@@ -25,7 +25,8 @@ public class Exercise04_Cards {
     getFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → "K-C"
     */
     public String getFirstCard(String[] hand) {
-        return "";
+
+        return hand[0];
     }
 
     /*
@@ -42,8 +43,10 @@ public class Exercise04_Cards {
     discardFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → ["Q-D", "J-H", "10-S", "Q-C"]
      */
     public String[] discardFirstCard(String[] hand) {
-        return new String[] {};
+        String [] newHand = {hand[1], hand[2], hand[3], hand[4]};
+        return newHand;
     }
+
 
     /*
     Once a player has drawn the top card from the deck, they must discard it.
@@ -60,7 +63,18 @@ public class Exercise04_Cards {
     discardTopCard(["9-H"]) → []
     discardTopCard([]) → []
      */
-    public String[] discardTopCard(String[] remainingDeck) {
-        return new String[] {};
+    public String[] discardTopCard(String[] givenDeck) {
+        String [] emptyArray = {};
+        if (givenDeck.length == 0) {
+            return emptyArray;
+        } else {
+            String [] newDeck = new String[givenDeck.length - 1];
+            for (int i = 1; i < givenDeck.length; i++) {
+                newDeck[i - 1] = givenDeck[i];
+            }
+            return newDeck;
+        }
+
+
     }    
 }
