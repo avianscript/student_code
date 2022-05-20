@@ -24,29 +24,29 @@ public class HigherLowerGame {
 
         //TODO
         // Read the input into a String
-        String playersString = "";
+        String playersString = userInput.nextLine();
 
         //TODO
         // Split the String into qn array of Strings
-        String [] players = { };
+        String [] players = playersString.split(" ");
 
         //TODO
         // get a value to guess for each player (the param is the number of players)
-        int [] gameValues = getGameValues(0);
+        int [] gameValues = getGameValues(players.length);
 
         //TODO
         // Iterate through the players
-        for (int i = 0; i < 0; i++) {
+        for (int i = 0; i < players.length; i++) {
 
             System.out.println();
 
-            System.out.println("[player name]" + "'s Turn: ");
+            System.out.println(players[i] + "'s Turn: ");
 
             // call the play method for this player
             //
             //TODO
             // pass the value that player will try to guess and the Scanner, returns the number of attempts
-            int attempts = play(0, userInput);
+            int attempts = play(gameValues[i], userInput);
 
 
             //TODO
@@ -121,7 +121,7 @@ public class HigherLowerGame {
         // each player will play a round
         // create an array with a slot for each player - the slot will hold the number
         // each player will be trying to guess in their round
-
+        int [] gameValues = new int[players];
 
         // this gets a random number generator
         Random random = getRandom();
@@ -133,7 +133,9 @@ public class HigherLowerGame {
 
             //TODO
             // store the value in the array of values tp guess for each player's round
+            gameValues[i] = value;
         }
+
 
         //TODO
         // return the array
