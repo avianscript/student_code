@@ -379,12 +379,17 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
+		if (str.length() < 2) {
+			return 0;
+		}
 		String lastTwo = str.substring(str.length() - 2, str.length());
 		int numMatchesWithLast2 = 0;
-		for (int i = 1; i < str.length(); i++)
-			if (str.substring(i - 1, i).equals(lastTwo)) {
+		for (int i = 0; i < str.length() - 2; i++) {
+			if (str.substring(i, i + 2).equals(lastTwo)) {
 				numMatchesWithLast2++;
 			}
+
+		}
 		return numMatchesWithLast2;
 	}
 
@@ -422,9 +427,10 @@ public class Exercises {
 	 */
 	public String altPairs(String str) {
 		String newString = "";
-		for (int i = 0; i < str.length() - 1; i += 4) {
-			newString += str.substring(i, i + 2);
-
+		for (int i = 0; i < str.length(); i++) {
+			if (i % 4 == 0 || (i - 1) % 4 == 0) {
+				newString += str.charAt(i);
+			}
 		}
 		return newString;
 	}
