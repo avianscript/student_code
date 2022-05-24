@@ -457,16 +457,6 @@ public class Exercises {
 				int endOfYakNew = startOfYakNew + 2;
 				newString = newString.substring(0, startOfYakNew) + newString.substring(endOfYakNew + 1, newString.length());
 			}
-	/*	if (str.contains("yak")) {
-			for (int i = 0; i < str.length(); i += 3) {
-				if (str.charAt(i) == 'y' && str.charAt(i + 1) == 'a' && str.charAt(i + 2) == 'k') {
-					newString += "";
-				} else {
-					newString += str.charAt(i);
-	*/
-
-
-
 	return newString;
 	}
 }

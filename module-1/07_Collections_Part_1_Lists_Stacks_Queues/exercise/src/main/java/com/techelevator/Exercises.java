@@ -16,7 +16,12 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		List<String> arrToList = new ArrayList<String>();
+		for (int i = 0; i < stringArray.length; i++) {
+
+			arrToList.add(stringArray[i]);
+		}
+		return arrToList;
 	}
 
 	/*
@@ -26,7 +31,8 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String [] newArray = stringList.toArray(new String[0]);
+		return newArray;
 	}
 
 	/*
@@ -37,7 +43,14 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> noFourLetters = new ArrayList<String>();
+		for (int i = 0; i < stringArray.length; i++)
+			if (stringArray[i].length() == 4) {
+
+			} else {
+				noFourLetters.add(stringArray[i]);
+			}
+		return noFourLetters;
 	}
 
 	/*
@@ -47,7 +60,11 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> divideBy2 = new ArrayList<Double>();
+		for (int i = 0; i < intArray.length; i++) {
+			divideBy2.add((double)intArray[i] / 2);
+		}
+		return divideBy2;
 	}
 
 	/*
@@ -57,7 +74,15 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		Integer [] newArray = integerList.toArray(new Integer[0]);
+		int largestNumber = 0;
+		for (int i = 0; i < newArray.length; i++) {
+			if (newArray[i] > largestNumber) {
+				largestNumber = newArray[i];
+			}
+		}
+
+		return largestNumber;
 	}
 
 	/*
@@ -67,7 +92,13 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> justOdds = new ArrayList<Integer>();
+		for (int i = 0; i < integerArray.length; i++) {
+			if (integerArray[i] % 2 == 1) {
+				justOdds.add(integerArray[i]);
+			}
+		}
+		return justOdds;
 	}
 
 	/*
@@ -78,6 +109,16 @@ public class Exercises {
 	 foundIntTwice( [9, 9, 44, 2, 88, 9], 9) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		Integer [] newArray = integerList.toArray(new Integer[0]);
+		int numberOfTimesInArray = 0;
+		for (int i = 0; i < newArray.length; i++) {
+			if (newArray[i] == intToFind) {
+				numberOfTimesInArray++;
+			}
+		}
+		if (numberOfTimesInArray >= 2) {
+			return true;
+		}
 		return false;
 	}
 
@@ -94,7 +135,20 @@ public class Exercises {
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<String> newList = new ArrayList<String>();
+		for (int i = 0; i < integerArray.length; i++) {
+			if (integerArray[i] % 3 == 0 && integerArray[i] % 5 == 0) {
+				newList.add("FizzBuzz");
+			} else if (integerArray[i] % 3 == 0) {
+				newList.add("Fizz");
+			} else if (integerArray[i] % 5 == 0) {
+				newList.add("Buzz");
+			} else {
+				newList.add(String.valueOf(integerArray[i]));
+			}
+		}
+
+		return newList;
 	}
 
 	/*
@@ -105,7 +159,16 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+		List<Integer> interWoven = new ArrayList<Integer>();
+		Integer [] listOneArray = listOne.toArray(new Integer[0]);
+		Integer [] listTwoArray = listTwo.toArray(new Integer[0]);
+		//if (listOne.size() == listTwo.size()) {
+			for (int i = 0; i < listTwo.size() && i < listOne.size(); i++) {
+				interWoven.add(listOneArray[i]);
+				interWoven.add(listTwoArray[i]);
+			}
+		//}
+		return interWoven;
 	}
 
 }
