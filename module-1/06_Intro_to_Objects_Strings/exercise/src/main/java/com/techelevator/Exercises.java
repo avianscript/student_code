@@ -438,17 +438,29 @@ public class Exercises {
 	 */
 	public String stringYak(String str) {
 		String newString = "";
+		int startOfYak = str.indexOf("yak");
+		int endOfYak = startOfYak + 2;
+
 		if (str.contains("yak")) {
-			for (int i = 0; i + 2 < str.length(); i += 3) {
+			newString = str.substring(0, startOfYak) + str.substring(endOfYak + 1, str.length());
+		} else {
+			newString = str;
+		}
+			if (newString.contains("yak")) {
+				int startOfYakNew = newString.indexOf("yak");
+				int endOfYakNew = startOfYakNew + 2;
+				newString = newString.substring(0, startOfYakNew) + newString.substring(endOfYakNew + 1, newString.length());
+			}
+	/*	if (str.contains("yak")) {
+			for (int i = 0; i < str.length(); i += 3) {
 				if (str.charAt(i) == 'y' && str.charAt(i + 1) == 'a' && str.charAt(i + 2) == 'k') {
 					newString += "";
 				} else {
 					newString += str.charAt(i);
-				}
-			}
-		return newString;
-		} else {
-			return str;
-		}
+	*/
+
+
+
+	return newString;
 	}
 }
