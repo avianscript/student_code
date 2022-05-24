@@ -270,7 +270,18 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		return str;
+		String newString = str;
+		if (n < 1) {
+			newString = "";
+		}
+		if (n > 1) {
+			for (int x = 0; x <= n - 2; x++) {
+				for (int i = 0; i < str.length(); i++) {
+					newString += str.charAt(i);
+				}
+			}
+		}
+		return newString;
 	}
 
 	/*
@@ -281,9 +292,21 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return null;
-	}
+		String newString = "";
+		if (str.length() < 3) {
+			for (int i = 0; i <= n - 1; i++) {
+				newString += str;
+			}
+		}
 
+		if (str.length() >= 3) {
+			for (int i = 0; i <= n - 1; i++) {
+				newString += str.substring(0, 3);
+			}
+
+		}
+		return newString;
+	}
 	/*
 	 Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx".
 	 countXX("abcxx") → 1
@@ -291,10 +314,10 @@ public class Exercises {
 	 countXX("xxxx") →
 	 */
 	public int countXX(String str) {
-int hasXxTimes = 0;
+		int hasXxTimes = 0;
 		for (int i = 1; i < str.length(); i++) {
 			if (str.charAt(i) == 'x' && str.charAt(i - 1) == 'x') {
-			hasXxTimes++;
+				hasXxTimes++;
 			}
 		}
 		return hasXxTimes;
@@ -307,6 +330,12 @@ int hasXxTimes = 0;
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
+		int indexForFirstX = str.indexOf("x");
+		if (indexForFirstX == str.length() - 1) {
+			return false;
+		} else if (str.charAt(indexForFirstX + 1) == 'x') {
+			return true;
+		}
 		return false;
 	}
 
@@ -317,7 +346,15 @@ int hasXxTimes = 0;
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+		if (str.equals("")) {
+			return "";
+		}
+		String givenString = String.valueOf(str.charAt(0));
+		for (int i = 2; i < str.length(); i += 2) {
+			givenString += String.valueOf(str.charAt(i));
+		}
+
+		return givenString;
 	}
 
 	/*
@@ -327,7 +364,11 @@ int hasXxTimes = 0;
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
+		String givenString = String.valueOf(str.charAt(0));
+		for (int i = 2; i < str.length() + 1; i += 1) {
+			givenString += str.substring(0, i);
+		}
+		return givenString;
 	}
 
 	/*
@@ -338,7 +379,13 @@ int hasXxTimes = 0;
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		return 0;
+		String lastTwo = str.substring(str.length() - 2, str.length());
+		int numMatchesWithLast2 = 0;
+		for (int i = 1; i < str.length(); i++)
+			if (str.substring(i - 1, i).equals(lastTwo)) {
+				numMatchesWithLast2++;
+			}
+		return numMatchesWithLast2;
 	}
 
 	/*
@@ -349,7 +396,22 @@ int hasXxTimes = 0;
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+		if (str.equals("")) {
+			return "";
+		}
+		if (str.equals("x")) {
+			return "x";
+		}
+		String newStringNoX = String.valueOf(str.charAt(0));
+		for (int i = 1; i < str.length() - 1; i++) {
+			if (str.charAt(i) == 'x') {
+				newStringNoX += "";
+			} else {
+				newStringNoX += str.charAt(i);
+			}
+		}
+		return newStringNoX + str.charAt(str.length() - 1);
+
 	}
 
 	/*
@@ -359,7 +421,12 @@ int hasXxTimes = 0;
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		String newString = "";
+		for (int i = 0; i < str.length() - 1; i += 4) {
+			newString += str.substring(i, i + 2);
+
+		}
+		return newString;
 	}
 
 	/*
@@ -370,7 +437,18 @@ int hasXxTimes = 0;
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return null;
+		String newString = "";
+		if (str.contains("yak")) {
+			for (int i = 0; i + 2 < str.length(); i += 3) {
+				if (str.charAt(i) == 'y' && str.charAt(i + 1) == 'a' && str.charAt(i + 2) == 'k') {
+					newString += "";
+				} else {
+					newString += str.charAt(i);
+				}
+			}
+		return newString;
+		} else {
+			return str;
+		}
 	}
-
 }
