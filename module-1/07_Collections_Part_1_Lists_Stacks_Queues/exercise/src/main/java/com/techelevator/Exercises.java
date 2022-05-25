@@ -160,14 +160,37 @@ public class Exercises {
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
 		List<Integer> interWoven = new ArrayList<Integer>();
-		Integer [] listOneArray = listOne.toArray(new Integer[0]);
-		Integer [] listTwoArray = listTwo.toArray(new Integer[0]);
-		//if (listOne.size() == listTwo.size()) {
-			for (int i = 0; i < listTwo.size() && i < listOne.size(); i++) {
+		Integer[] listOneArray = listOne.toArray(new Integer[0]);
+		Integer[] listTwoArray = listTwo.toArray(new Integer[0]);
+		Integer[] longerList = new Integer[0];
+		Integer[] shorterList = new Integer[0];
+
+		if (listOne.size() != listTwo.size()) {
+			if (listOne.size() > listTwo.size()) {
+				longerList = listOneArray;
+				shorterList = listTwoArray;
+			} else {
+				longerList = listTwoArray;
+				shorterList = listOneArray;
+			}
+		for (int i = 0; i < shorterList.length; i++) {
+			interWoven.add(listOneArray[i]);
+			interWoven.add(listTwoArray[i]);
+		}
+		for (int x = shorterList.length; x < longerList.length; x++) {
+			interWoven.add(longerList[x]);
+		}
+		}
+
+		if (listOne.size() == listTwo.size()) {
+			for (int i = 0; i < listOneArray.length; i++) {
 				interWoven.add(listOneArray[i]);
 				interWoven.add(listTwoArray[i]);
 			}
-		//}
+		}
+
+
+
 		return interWoven;
 	}
 
