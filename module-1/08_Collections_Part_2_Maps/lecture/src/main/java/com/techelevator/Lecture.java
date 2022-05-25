@@ -1,6 +1,10 @@
 package com.techelevator;
 
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 public class Lecture {
 
 	public static void main(String[] args) {
@@ -10,7 +14,22 @@ public class Lecture {
 		System.out.println("####################");
 		System.out.println();
 
+		Map<String, String> animalGroupings = new HashMap<>();
+		animalGroupings.put("Rhino", "Crash");
+		animalGroupings.put("Giraffe", "Tower");
+		animalGroupings.put("Elephant", "Herd");
+		animalGroupings.put("Lion", "Pride");
+		animalGroupings.put("Crow", "Murder");
+		animalGroupings.put("Pigeon", "Kit");
+		animalGroupings.put("Flamingo", "Pat");
+		animalGroupings.put("Deer", "Herd");
+		animalGroupings.put("Dog", "Pack");
+		animalGroupings.put("Crocodile", "Float");
 
+		Set<String> newSet = animalGroupings.keySet();
+		for (String newArr : newSet){
+			System.out.println(newArr);
+		}
 
 		/*
 		// Create a Map to look up state name by code

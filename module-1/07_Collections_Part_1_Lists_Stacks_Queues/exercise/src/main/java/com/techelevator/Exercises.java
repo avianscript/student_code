@@ -62,7 +62,7 @@ public class Exercises {
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
 		List<Double> divideBy2 = new ArrayList<Double>();
 		for (int i = 0; i < intArray.length; i++) {
-			divideBy2.add((double)intArray[i] / 2);
+			divideBy2.add(intArray[i] / 2.0);
 		}
 		return divideBy2;
 	}
@@ -77,6 +77,10 @@ public class Exercises {
 		Integer [] newArray = integerList.toArray(new Integer[0]);
 		int largestNumber = 0;
 		for (int i = 0; i < newArray.length; i++) {
+			// for (Integer num : integerList) {
+			// if (num > largest) {
+			//  largest = num;
+			// }
 			if (newArray[i] > largestNumber) {
 				largestNumber = newArray[i];
 			}
@@ -145,6 +149,7 @@ public class Exercises {
 				newList.add("Buzz");
 			} else {
 				newList.add(String.valueOf(integerArray[i]));
+				// .toString();
 			}
 		}
 
@@ -188,10 +193,6 @@ public class Exercises {
 				interWoven.add(listTwoArray[i]);
 			}
 		}
-
-
-
 		return interWoven;
 	}
-
 }

@@ -1,7 +1,9 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Exercises {
 
@@ -34,7 +36,31 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+
+		String groupName = "";
+		Map<String, String> animalGroupings = new HashMap<>();
+		animalGroupings.put("Rhino", "Crash");
+		animalGroupings.put("Giraffe", "Tower");
+		animalGroupings.put("Elephant", "Herd");
+		animalGroupings.put("Lion", "Pride");
+		animalGroupings.put("Crow", "Murder");
+		animalGroupings.put("Pigeon", "Kit");
+		animalGroupings.put("Flamingo", "Pat");
+		animalGroupings.put("Deer", "Herd");
+		animalGroupings.put("Dog", "Pack");
+		animalGroupings.put("Crocodile", "Float");
+if (animalName == null) {
+	return "unknown";
+}
+
+		for (Map.Entry<String, String> newEntrySet : animalGroupings.entrySet()) {
+			String keySet = newEntrySet.getKey();
+			if (animalName.equalsIgnoreCase(keySet)) {
+				return newEntrySet.getValue();
+			}
+
+		}
+		return "unknown";
 	}
 
 	/*
@@ -60,7 +86,23 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
-		return -1.0;
+		Map<String, Double> discountFun = new HashMap<>();
+		discountFun.put("KITCHEN4001", 0.20);
+		discountFun.put("GARAGE1070", 0.15);
+		discountFun.put("LIVINGROOM", 0.10);
+		discountFun.put("KITCHEN6073", 0.40);
+		discountFun.put("BEDROOM3434", 0.60);
+		discountFun.put("BATH0073", 0.15);
+if (itemNumber == null) {
+	return 0.0;
+}
+		for (Map.Entry<String, Double> newEntrySet : discountFun.entrySet()) {
+			String keySet = newEntrySet.getKey();
+			if (itemNumber.equalsIgnoreCase(keySet)) {
+				return newEntrySet.getValue();
+			}
+		}
+		return 0.0;
 	}
 
 	/*
