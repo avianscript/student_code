@@ -216,8 +216,26 @@ return partnerFund;
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		int instanceCount = 1;
+		Map<Integer, Integer> howMany = new HashMap<>();
+		int modelInt = 0;
+		for (int i = 0; i < ints.length; i++) {
+			modelInt = ints[i];
+			if (howMany.containsKey(ints[i])) {
+				continue;
+			}
+			for (int x = i + 1; x < ints.length; x++) {
+				if (ints[x] == modelInt) {
+					instanceCount++;
+				}
+			}
+			howMany.put(ints[i], instanceCount);
+			instanceCount = 1;
+		}
+
+		return howMany;
 	}
+
 
 	/*
 	 * Given an array of Strings, return a Map<String, Boolean> where each different String is a key and value
@@ -229,8 +247,26 @@ return partnerFund;
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		int instanceCount = 1;
+		Map<String, Boolean> howMany = new HashMap<>();
+		String modelString = "";
+		for (int i = 0; i < words.length; i++) {
+			modelString = words[i];
+			if (howMany.containsKey(words[i])) {
+				continue;
+			}
+			for (int x = i + 1; x < words.length; x++) {
+				if (words[x].equals(modelString)) {
+					instanceCount++;
+				}
+			}
+			howMany.put(words[i], instanceCount >= 2);
+			instanceCount = 1;
+		}
+
+		return howMany;
 	}
+
 
 	/*
 	 * Given two Maps, Map<String, Integer>, merge the two into a new Map, Map<String, Integer> where keys in Map2,
@@ -244,7 +280,23 @@ return partnerFund;
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
-		return null;
+Map<String, Integer> newMapForWarehouse = new HashMap<>();
+		for (Map.Entry<String, Integer> entryMain : mainWarehouse.entrySet()) {
+			String skuForYou = entryMain.getKey();
+			Integer numInStock = entryMain.getValue();
+			newMapForWarehouse.put(skuForYou, numInStock);
+			for (Map.Entry<String, Integer> entryRemote : remoteWarehouse.entrySet()) {
+				String remoteSkuForYou = entryRemote.getKey();
+				Integer remoteNumInStock = entryRemote.getValue();
+				if (remoteSkuForYou.equals(skuForYou)) {
+					numInStock += remoteNumInStock;
+					newMapForWarehouse.put(skuForYou, numInStock);
+				} else {
+					newMapForWarehouse.put(remoteSkuForYou, remoteNumInStock);
+				}
+			}
+		}
+		return newMapForWarehouse;
 	}
 
 	/*
@@ -263,7 +315,18 @@ return partnerFund;
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
+		Map<String, Integer> last2GoAway = new HashMap<>();
+		int numOfRepeats = 0;
+				for (int i = 0; i < words.length; i++) {
+					String lastTwoChars = words[i].substring(words[i].length() - 2, words[i].length());
+				for (int x = 0; x < words[i].length() - 2; x++) {
+					if (words[i].substring(x, x + 2).equals(lastTwoChars))
+						numOfRepeats++;
+				}
+					last2GoAway.put(words[i], numOfRepeats);
+				numOfRepeats = 0;
+				}
+		return last2GoAway;
 	}
 
 }
