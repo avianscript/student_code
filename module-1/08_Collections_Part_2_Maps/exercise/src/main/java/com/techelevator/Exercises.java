@@ -116,9 +116,19 @@ if (itemNumber == null) {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
-	}
+		Map<String, Integer> payOutToPaul = new HashMap<>();
+		Integer petersMoolah = peterPaul.get("Peter");
+		Integer paulsMoolah = peterPaul.get("Paul");
 
+		if (paulsMoolah < 1000 && petersMoolah > 0) {
+			for (Map.Entry<String, Integer> newEntrySet : peterPaul.entrySet()) {
+				payOutToPaul.put("Peter", (petersMoolah / 2));
+				payOutToPaul.put("Paul", (petersMoolah / 2 + paulsMoolah));
+				return payOutToPaul;
+			}
+		}
+		return peterPaul;
+	}
 	/*
 	 * Modify and return the given Map as follows: if "Peter" has $50 or more, AND "Paul" has $100 or more,
 	 * then create a new "PeterPaulPartnership" worth a combined contribution of a quarter of each partner's
@@ -129,7 +139,18 @@ if (itemNumber == null) {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		Map<String, Integer> partnerFund = new HashMap<>();
+		Integer petersMoolah = peterPaul.get("Peter");
+		Integer paulsMoolah = peterPaul.get("Paul");
+		if (petersMoolah >= 5000 && paulsMoolah >= 10000) {
+			partnerFund.put("Peter", (int)(petersMoolah * 0.75));
+			partnerFund.put("Paul", (int)(paulsMoolah * 0.75));
+			partnerFund.put("PeterPaulPartnership", (int)((petersMoolah * 0.25) + (paulsMoolah * 0.25)));
+		} else {
+			return peterPaul;
+		}
+
+return partnerFund;
 	}
 
 	/*
@@ -141,7 +162,13 @@ if (itemNumber == null) {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		Map<String, String> frontBack = new HashMap<>();
+
+		for (int i = 0; i < words.length; i++) {
+			frontBack.put(String.valueOf(words[i].charAt(0)), String.valueOf(words[i].charAt(words[i].length() - 1)));
+		}
+
+		return frontBack;
 	}
 
 	/*
@@ -157,7 +184,24 @@ if (itemNumber == null) {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
+		int instanceCount = 1;
+		Map<String, Integer> howMany = new HashMap<>();
+		String modelString = "";
+		for (int i = 0; i < words.length; i++) {
+			modelString = words[i];
+			if (howMany.containsKey(words[i])) {
+				continue;
+			}
+			for (int x = i + 1; x < words.length; x++) {
+				if (words[x].equals(modelString)) {
+					instanceCount++;
+				}
+			}
+			howMany.put(words[i], instanceCount);
+			instanceCount = 1;
+		}
+
+		return howMany;
 	}
 
 	/*
