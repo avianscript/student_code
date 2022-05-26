@@ -119,16 +119,17 @@ if (itemNumber == null) {
 		Map<String, Integer> payOutToPaul = new HashMap<>();
 		Integer petersMoolah = peterPaul.get("Peter");
 		Integer paulsMoolah = peterPaul.get("Paul");
+		Integer halfPetersMoolah = peterPaul.get("Peter") / 2;
 
 		if (paulsMoolah < 1000 && petersMoolah > 0) {
 			for (Map.Entry<String, Integer> newEntrySet : peterPaul.entrySet()) {
-				payOutToPaul.put("Peter", (petersMoolah / 2));
+				payOutToPaul.put("Peter", (petersMoolah - halfPetersMoolah));
 				payOutToPaul.put("Paul", (petersMoolah / 2 + paulsMoolah));
 				return payOutToPaul;
 			}
 		}
 		return peterPaul;
-	}
+	} //petersMoney - halfPetersMoney
 	/*
 	 * Modify and return the given Map as follows: if "Peter" has $50 or more, AND "Paul" has $100 or more,
 	 * then create a new "PeterPaulPartnership" worth a combined contribution of a quarter of each partner's
@@ -263,7 +264,6 @@ return partnerFund;
 			howMany.put(words[i], instanceCount >= 2);
 			instanceCount = 1;
 		}
-
 		return howMany;
 	}
 
@@ -280,22 +280,22 @@ return partnerFund;
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
-Map<String, Integer> newMapForWarehouse = new HashMap<>();
+		Map<String, Integer> newMapForWarehouse = new HashMap<>();
+
 		for (Map.Entry<String, Integer> entryMain : mainWarehouse.entrySet()) {
-			String skuForYou = entryMain.getKey();
-			Integer numInStock = entryMain.getValue();
-			newMapForWarehouse.put(skuForYou, numInStock);
+			newMapForWarehouse.put(entryMain.getKey(), entryMain.getValue());
+
+		}
+
 			for (Map.Entry<String, Integer> entryRemote : remoteWarehouse.entrySet()) {
-				String remoteSkuForYou = entryRemote.getKey();
-				Integer remoteNumInStock = entryRemote.getValue();
-				if (remoteSkuForYou.equals(skuForYou)) {
-					numInStock += remoteNumInStock;
-					newMapForWarehouse.put(skuForYou, numInStock);
+				if (newMapForWarehouse.containsKey((entryRemote.getKey()))) {
+					Integer numInStock = newMapForWarehouse.get(entryRemote.getKey());
+					numInStock += entryRemote.getValue();
+					newMapForWarehouse.put(entryRemote.getKey(), numInStock);
 				} else {
-					newMapForWarehouse.put(remoteSkuForYou, remoteNumInStock);
+					newMapForWarehouse.put(entryRemote.getKey(), entryRemote.getValue());
 				}
 			}
-		}
 		return newMapForWarehouse;
 	}
 
