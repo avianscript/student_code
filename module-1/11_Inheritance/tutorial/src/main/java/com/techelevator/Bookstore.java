@@ -24,5 +24,21 @@ public class Bookstore {
         shoppingCart.add(threeMusketeers);
         shoppingCart.add(childhoodEnd);
         System.out.println(shoppingCart.receipt());
+
+        // Bookstore.java
+// Add some new movies and purchase them
+        Movie toyStory = new Movie("Toy Story", "G", 81, 19.99);
+        shoppingCart.add(toyStory);
+
+// Shirley, you can't be serious!
+        Movie airplane = new Movie("Airplane!", "PG", 88, 14.99);
+        shoppingCart.add(airplane);
+
+        Music home = new Music("Home", "Garrels, Josh", 8, 14.99);
+        shoppingCart.add(home);
+
+        System.out.println(shoppingCart.receipt());
     }
+
+
 }
