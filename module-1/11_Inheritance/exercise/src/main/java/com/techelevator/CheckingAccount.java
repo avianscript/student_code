@@ -7,6 +7,7 @@ public class CheckingAccount extends BankAccount {
 //        accountHolderName = getAccountHolderName();
 //        accountNumber = getAccountNumber();
         super(accountHolderName, accountNumber);
+      //  this(accountHolderName, accountNumber, 0)
 
     }
 
