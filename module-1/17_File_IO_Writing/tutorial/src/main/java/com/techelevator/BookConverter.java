@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class BookConverter {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         /*
          * This book-converter program opens a file that was downloaded from https://www.gutenberg.org/,
          * and converts all its text to uppercase.
@@ -36,6 +36,12 @@ public class BookConverter {
         /*
         Step 2: Open a file for writing the converted text into it
          */
+        // Create a File object for the output file
+        File convertedFile = getConvertedFile(bookFile);
+// Open both the input and output files.
+        try (Scanner fileInput = new Scanner(bookFile);
+             PrintWriter writer = new PrintWriter(convertedFile)) {
+        }
         try (Scanner fileInput = new Scanner(bookFile)) {
             // Loop until the end of file is reached
             while (fileInput.hasNextLine()) {
@@ -71,6 +77,7 @@ public class BookConverter {
      * file object based on that file's name, with ".screaming" inserted before the file extension.
      * So, an input file with name "myFile.txt" will return a file named "myFile.screaming.txt".
      * If the is no extension on the input file ("myFile"), then ".screaming" will just be appended ("myFile.screaming").
+     *
      * @param bookFile The input file on which to calculate a new filename.
      * @return A File object whose name includes ".screaming" before the extension.
      */
@@ -89,5 +96,8 @@ public class BookConverter {
             convertedPath = bookPath + ".screaming";
         }
         return new File(convertedPath);
+
+
+
     }
 }
