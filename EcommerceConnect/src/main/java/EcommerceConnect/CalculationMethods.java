@@ -6,6 +6,8 @@ public class CalculationMethods extends Product{
     static double profitMarginSource;
     static double sellPrice;
     static int setProfit;
+    static double profitValue;
+
 
     public static double calcProfit () {
         profitMarginSource = (((sellAtPrice - inputSourcePrice - handlingCost) / (inputSourcePrice + handlingCost)) * 100);
@@ -24,5 +26,10 @@ public class CalculationMethods extends Product{
             return true;
         }
         return false;
+    }
+    public static double calcProfitValue() {
+        profitValue = sellAtPrice() - inputSourcePrice - handlingCost;
+
+        return profitValue;
     }
 }

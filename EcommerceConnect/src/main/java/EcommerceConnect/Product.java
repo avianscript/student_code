@@ -8,7 +8,8 @@ public class Product {
     private static String productIdentifier;
     private static Double handlingCosts;
 
-    public void Product (String productIdentifier, Double unitSourcePrice, Double unitOnSalePrice, Double createPrice, int profitMargin) {
+
+    public void Product (String productIdentifier, double unitSourcePrice, double unitOnSalePrice, double createPrice, double handlingCosts) {
         this.unitSourcePrice = unitSourcePrice;
         this.unitOnSalePrice = unitOnSalePrice;
         this.createPrice = createPrice;
@@ -32,11 +33,12 @@ public class Product {
         return createPrice;
     }
 
-    public void setCreatePrice(Double createPrice) {
+    public void setCreatePrice() {
         this.createPrice = createPrice;
     }
 
     public static Double getHandlingCosts() {
         return handlingCosts;
     }
+
 }

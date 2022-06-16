@@ -10,7 +10,8 @@ public class Hub extends CalculationMethods {
     static double sellAtPrice;
     static double salePrice;
 
-    Product testProduct = new Product();
+
+
 
     public static void run () {
         System.out.print("Source Price: ");
@@ -33,6 +34,7 @@ public class Hub extends CalculationMethods {
                 run();
             } else {
                 System.out.println("This sell-at price is equal to or less than the typical sale price. List!");
+                System.out.println("Your profit value from this item would be: $" + calcProfitValue());
                 run();
             }
         } else {
@@ -46,6 +48,12 @@ public class Hub extends CalculationMethods {
         }
     }
 
+//    @Override
+//    public void setCreatePrice() {
+//        super.setCreatePrice();
+//        double createPrice = Double.parseDouble(scanner.nextLine());
+//
+//    }
 
     public static void main(String[] args) {
 run();
