@@ -12,7 +12,7 @@ CREATE TABLE member(
 	last_name varchar(100) NOT NULL,
 	first_name varchar(100) NOT NULL,
 	email_address varchar(100) NOT NULL,
-	phone_number varchar(20) NOT NULL,
+	phone_number varchar(20),
 	date_of_birth date NOT NULL,
 	follow_up boolean NOT NULL,
 	CONSTRAINT PK_member PRIMARY KEY (member_id)
