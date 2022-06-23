@@ -8,7 +8,6 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.techelevator.projects.model.Employee;
-import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 public class JdbcEmployeeDao implements EmployeeDao {
 
@@ -25,16 +24,7 @@ public class JdbcEmployeeDao implements EmployeeDao {
 
 	@Override
 	public List<Employee> searchEmployeesByName(String firstNameSearch, String lastNameSearch) {
-		List<Employee> employees = new ArrayList<>();
-
-		String sql = "SELECT * FROM employee WHERE first_name ILIKE ? AND  last_name ILIKE ?";
-
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, "%" + firstNameSearch + "%", "%" + lastNameSearch + "%");
-		while (results.next()) {
-			Employee employee = mapRowToEmployee(results);
-			employees.add(employee);
-		}
-		return employees;
+		return List.of(new Employee());
 	}
 
 	@Override
@@ -53,16 +43,6 @@ public class JdbcEmployeeDao implements EmployeeDao {
 	@Override
 	public List<Employee> getEmployeesWithoutProjects() {
 		return new ArrayList<>();
-	}
-
-
-	private Employee mapRowToEmployee(SqlRowSet result) {
-		Employee employee = new Employee();
-
-		employee.setId(result.getInt("employee_id"));
-		// finish this...
-
-		return employee;
 	}
 
 
