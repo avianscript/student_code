@@ -17,6 +17,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
     }
 
     @Override
+    //Looks good to me!
     public Timesheet getTimesheet(int timesheetId) {
         Timesheet timesheet = null;
         String sql = "SELECT timesheet_id, employee_id, project_id, date_worked, hours_worked, billable, description " +
@@ -37,7 +38,9 @@ public class JdbcTimesheetDao implements TimesheetDao {
                      "WHERE employee_id = ? " +
                      "ORDER BY timesheet_id;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, employeeId);
-        if (results.next()) {
+
+       //should this be a while loop? (was an if statement) Yes, since we're adding potentially more than one timesheet to the list
+        while (results.next()) {
             Timesheet timesheet = mapRowToTimesheet(results);
             timesheets.add(timesheet);
         }
@@ -49,7 +52,8 @@ public class JdbcTimesheetDao implements TimesheetDao {
         List<Timesheet> timesheets = new ArrayList<>();
         String sql = "SELECT timesheet_id, employee_id, project_id, date_worked, hours_worked, billable, description " +
                      "FROM timesheet " +
-                     "WHERE employee_id = ? " +
+                //was WHERE employee_id; should be WHERE project_id
+                     "WHERE project_id = ? " +
                      "ORDER BY timesheet_id;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, projectId);
         while (results.next()) {
@@ -66,16 +70,25 @@ public class JdbcTimesheetDao implements TimesheetDao {
         Integer newId = jdbcTemplate.queryForObject(sql, Integer.class, newTimesheet.getEmployeeId(), newTimesheet.getProjectId(),
                      newTimesheet.getDateWorked(), newTimesheet.getHoursWorked(), newTimesheet.isBillable(),
                      newTimesheet.getDescription());
+        //adding the below code
+//        if (newId != null) {
+//            newTimesheet.setTimesheetId(newId);
+//        }
+
+        //should return newTimesheet, right?
         return getTimesheet(newId);
+//        return newTimesheet;
     }
 
     @Override
     public void updateTimesheet(Timesheet updatedTimesheet) {
         String sql = "UPDATE timesheet " +
-                     "SET employee_id = ?, project_id = ?, date_worked = ?, hours_worked = ?, description = ? " +
+                //missing "billable = ?"
+                     "SET employee_id = ?, project_id = ?, date_worked = ?, hours_worked = ?, billable = ?, description = ? " +
                      "WHERE timesheet_id = ?";
         jdbcTemplate.update(sql, updatedTimesheet.getEmployeeId(), updatedTimesheet.getProjectId(),
-                updatedTimesheet.getDateWorked(), updatedTimesheet.getHoursWorked(), updatedTimesheet.getDescription(),
+                //missing "updatedTimesheet.isBillable()
+                updatedTimesheet.getDateWorked(), updatedTimesheet.getHoursWorked(), updatedTimesheet.isBillable(), updatedTimesheet.getDescription(),
                 updatedTimesheet.getTimesheetId());
     }
 
@@ -91,6 +104,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
         String sql = "SELECT SUM(hours_worked) AS billable_hours " +
                      "FROM timesheet " +
                      "WHERE employee_id = ? AND project_id = ?";
+        //should it be queryForObject?
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, employeeId, projectId);
         if (results.next()) {
             billableHours = results.getDouble("billable_hours");

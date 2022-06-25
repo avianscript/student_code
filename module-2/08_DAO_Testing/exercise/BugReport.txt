@@ -1,43 +1,43 @@
 Bug 1
 -----
 Test that demonstrates problem:
-
+getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee()
 Expected output:
-
+Add all matching timesheets to List<Timesheet> timesheets.
 Actual output:
-
+Added only one matching timesheet to List<Timesheet> timesheets.
 How did you fix this bug?
-
+Changed the if statement to a while loop in getTimesheetsByEmployeeId.
 
 Bug 2
 -----
 Test that demonstrates problem:
-
+getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project()
 Expected output:
-
+Add all matching timesheets to List<Timesheet> timesheets according to project_id
 Actual output:
-
+Added all matching timesheets to List<Timesheet> timesheets according to employee_id
 How did you fix this bug?
-
+Corrected WHERE clause of SQL String to correctly identify the project_id rather than employee_id.
 
 Bug 3
 -----
 Test that demonstrates problem:
-
+updated_timesheet_has_expected_values_when_retrieved()
 Expected output:
-
+assertTimesheetsMatch(sheetToUpdate, retrievedSheet) to be true
 Actual output:
-
+assertTimesheetsMatch(sheetToUpdate, retrievedSheet) was false
 How did you fix this bug?
-
+Inserted "billable = ?" into appropriate location in SQL String of updateTimesheet ().
 
 Bug 4
 -----
 Test that demonstrates problem:
-
+updated_timesheet_has_expected_values_when_retrieved()
 Expected output:
-
+assertTimesheetsMatch(sheetToUpdate, retrievedSheet) to be true
 Actual output:
-
+assertTimesheetsMatch(sheetToUpdate, retrievedSheet) was false
 How did you fix this bug?
-
+Inserted "updatedTimesheet.isBillable()" into jdbcTemplate.update
