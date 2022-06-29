@@ -1,5 +1,6 @@
 package com.techelevator.auctions.services;
 
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
 import com.techelevator.util.BasicLogger;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -10,6 +11,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.techelevator.auctions.model.Auction;
 
+import javax.naming.CommunicationException;
+
 public class AuctionService {
 
     public static final String API_BASE_URL = "http://localhost:3000/auctions/";
@@ -18,16 +21,55 @@ public class AuctionService {
 
     public Auction add(Auction newAuction) {
         // place code here
-        return null;
+
+        String url = API_BASE_URL;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Auction> entity = new HttpEntity<Auction>(newAuction, headers);
+
+        try {
+            Auction savedAuction = restTemplate.postForObject(url, entity, Auction.class);
+
+            return savedAuction;
+        } catch (RestClientResponseException exception) {
+            BasicLogger.log("Error: " + exception.getRawStatusCode() + " " + exception.getStatusText());
+        } catch (ResourceAccessException exception) {
+            BasicLogger.log("Error: " + exception.getMessage());
+        }
+return null;
     }
+
 
     public boolean update(Auction updatedAuction) {
         // place code here
+HttpHeaders headers = new HttpHeaders();
+headers.setContentType(MediaType.APPLICATION_JSON);
+
+HttpEntity<Auction> entity = new HttpEntity<Auction>(updatedAuction, headers);
+
+try {
+    restTemplate.put(API_BASE_URL + updatedAuction.getId(), entity);
+    return true;
+} catch (RestClientResponseException exception) {
+    BasicLogger.log("Error: " + exception.getRawStatusCode() + " " + exception.getStatusText());
+} catch (ResourceAccessException exception) {
+    BasicLogger.log("Error: " + exception.getMessage());
+}
         return false;
     }
 
     public boolean delete(int auctionId) {
         // place code here
+
+        try {
+            restTemplate.delete(API_BASE_URL + auctionId);
+            return true;
+        } catch (RestClientResponseException exception) {
+            BasicLogger.log("Error: " + exception.getRawStatusCode() + " " + exception.getStatusText());
+        } catch (ResourceAccessException exception) {
+            BasicLogger.log("Error: " + exception.getMessage());
+        }
         return false;
     }
 
