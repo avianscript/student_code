@@ -20,15 +20,15 @@ public class App {
         while (menuSelection != 0) {
             consoleService.printMainMenu();
             menuSelection = consoleService.promptForMenuSelection("Please choose an option: ");
-            if (menuSelection == 1) {
+            if(menuSelection == 1) {
                 handleListHotels();
-            } else if (menuSelection == 2) {
+            } else if(menuSelection == 2) {
                 handleListReservations();
-            } else if (menuSelection == 3) {
+            } else if(menuSelection == 3) {
                 handleAddReservation();
-            } else if (menuSelection == 4) {
+            } else if(menuSelection == 4) {
                 handleUpdateReservation();
-            } else if (menuSelection == 5) {
+            } else if(menuSelection == 5) {
                 handleDeleteReservation();
             }
             else if (menuSelection == 0) {
@@ -44,7 +44,7 @@ public class App {
     private void handleListHotels() {
         // List all hotels
         Hotel[] hotels = hotelService.listHotels();
-        if (hotels != null) {
+        if( hotels != null ){
             consoleService.printHotels(hotels);
         } else {
             consoleService.printErrorMessage();
@@ -54,12 +54,12 @@ public class App {
     private void handleListReservations() {
         // List Reservations for hotel
         Hotel[] hotels = hotelService.listHotels();
-        if (hotels != null) {
+        if( hotels != null ) {
             consoleService.printHotelMenu(hotels);
             int hotelId = consoleService.promptForMenuSelection("Please select a hotel to list reservations for: ");
-            if (hotelId > 0) {
+            if(hotelId > 0) {
                 Reservation[] reservations = hotelService.listReservationsByHotel(hotelId);
-                if (reservations != null) {
+                if( reservations != null ) {
                     consoleService.printReservations(reservations,hotelId);
                 } else {
                     consoleService.printErrorMessage();
@@ -75,14 +75,14 @@ public class App {
         Reservation reservationEnteredByUser = consoleService.promptForReservationData();
         Reservation reservationFromApi = hotelService.addReservation(reservationEnteredByUser);
         // if unsuccessful
-        if (reservationFromApi == null) {
+        if(reservationFromApi == null){
             consoleService.printErrorMessage();
         }
     }
 
     private void handleUpdateReservation() {
         Reservation[] reservations = hotelService.listReservations();
-        if (reservations != null) {
+        if( reservations != null ) {
             consoleService.printReservationMenu(reservations);
             int reservationId =  consoleService.promptForMenuSelection("Please select a reservation to update: ");
             if (reservationId > 0) {
@@ -103,7 +103,7 @@ public class App {
 
     private void handleDeleteReservation() {
         Reservation[] reservations = hotelService.listReservations();
-        if (reservations != null) {
+        if( reservations != null ) {
             consoleService.printReservationMenu(reservations);
             int reservationId =  consoleService.promptForMenuSelection("Please select a reservation to delete: ");
             if (reservationId > 0) {
