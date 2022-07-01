@@ -87,9 +87,11 @@ public class Hub extends CalculationMethods {
 //
 //    }
 
+    static Product product = new Product();
     public static void main(String[] args) throws FileNotFoundException {
-run();
+//run();
 //        newProduct();
+        product.getDetails();
 
 
     }

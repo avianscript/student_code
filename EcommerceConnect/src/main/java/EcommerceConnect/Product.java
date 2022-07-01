@@ -1,9 +1,14 @@
 package EcommerceConnect;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Product {
+
 
     private static Double unitSourcePrice;
 //    private static Double unitOnSalePrice;
@@ -56,9 +61,26 @@ public class Product {
     //is to break down the list by product number (generated) into separate
     //String[], which can then be indexed and converted to appropriate
     //data types. (e.g. Product 1 shows getDetails.get(0) and gives price at [3] index of that array)
-    public List getDetails () {
+    File newFile = new File("custom_file (6).csv");
+
+
+    public void getDetails () {
         List<String[]> productDetails = new ArrayList<>();
-        productDetails.add(new String[] {String.valueOf(getProductIdentifier()), getProductUPC(), getProductName(), getUnitSourcePrice().toString()});
-                return productDetails;
+        try {
+            Scanner fileReader = new Scanner(newFile);
+            int x = 1;
+            while (fileReader.hasNextLine()) {
+
+                String nextProduct = "Product number: " + x + ", " + fileReader.nextLine();
+                String[] delimProduct = nextProduct.split(", ");
+                productDetails.add(delimProduct);
+                x++;
+                System.out.println(delimProduct[0]);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
