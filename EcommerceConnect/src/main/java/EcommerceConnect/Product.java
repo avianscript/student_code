@@ -75,7 +75,7 @@ public class Product {
                 String[] delimProduct = nextProduct.split(", ");
                 productDetails.add(delimProduct);
                 x++;
-                System.out.println(delimProduct[0]);
+                System.out.println(Arrays.toString(delimProduct));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
