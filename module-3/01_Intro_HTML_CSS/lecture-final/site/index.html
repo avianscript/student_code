@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoav's Fun Page</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+    <header id="top">
+        <h1>Bits & Bytes</h1>
+        <p>Best grub on the interwebz!</p>
+    </header>
+
+    <main>
+        <nav>
+            <a href="#lunch">Lunch</a>
+            <a href="#dinner">Dinner</a>
+            <a href="#reserve">Make a Reservation</a>
+            <a href="#top">Go Back to Top</a>
+            <a href="http://techelevator.com">Go to Tech Elevator Site</a>
+            <!-- target="_blank" will open link in new tab
+            
+            <a href="http://techelevator.com" target="_blank">Go to Tech Elevator Site</a> -->
+        </nav>
+
+        <h2>Menu</h2>
+
+        <section id="lunch">
+            <h3>Lunch</h3>
+
+            <p>Full Stack Sandwich</p>
+            <img src="images/menu/lunch/full-stack-sandwich.png" />
+
+            <p>U.S. Burger</p>
+            <img src="images/menu/lunch/USBurger.png" />
+        </section>
+
+        <section id="dinner">
+            <h3>Dinner</h3>
+
+            <p>Array of Vegetables</p>
+            <img src="images/menu/dinner/array-of-vegetables.png" />
+
+            <p>Rack of Ram</p>
+            <img src="images/menu/dinner/rack-of-ram.png" />
+        </section>
+
+        <section id="reserve">
+            <h2>Make a Reservation</h2>
+            <form method="GET" action="/api/reservation">
+                <div>
+                    <label for="firstName">First Name:</label>
+                    <input id="firstName" name="firstName" type="text" />
+                </div>
+
+                <div>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="last_name" />
+                </div>
+
+                <div>
+                    <label for="location">Location:</label>
+                    <select id="location" name="location">
+                        <option value="" selected="selected">--- Select a location ---</option>
+                        <option value="PHL" >Philly</option>
+                        <option value="WLM">Wilmington</option>
+                    </select>
+                </div>
+
+                <div>
+                    <input type="radio" id="birthday" name="occasion" value="birthday">
+                    <label for="birthday">Birthday</label>
+
+                    <input type="radio" id="anniversary" name="occasion" value="anniversary">
+                    <label for="anniversary">Anniversary</label>
+
+                    <input type="radio" id="none" name="occasion" value="none" checked="checked">
+                    <label for="none">Not a special occasion</label>
+                </div>
+
+                <div>
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" name="comments">Hello</textarea>
+                </div>
+
+                <div>
+                    <input type="submit" />
+                </div>
+            </form>
+        </section>
+
+        <nav>
+            <a href="#lunch">Lunch</a>
+            <a href="#dinner">Dinner</a>
+            <a href="#reserve">Make a Reservation</a>
+            <a href="#top">Go Back to Top</a>
+            <a href="silly.html">Go to Silly</a>
+            <a href="http://techelevator.com">Go to Tech Elevator Site</a>
+            <!-- target="_blank" will open link in new tab
+            
+            <a href="http://techelevator.com" target="_blank">Go to Tech Elevator Site</a> -->
+        </nav>
+
+    </main>
+</body>
+
+</html>
