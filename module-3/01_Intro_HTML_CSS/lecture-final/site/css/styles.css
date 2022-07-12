@@ -1,0 +1,18 @@
+img {
+    height: 200px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: yellow;
+}
+
+h1 {
+    font-size: 40px;
+    color: #1a53ff;
+    /* border-style: solid;
+    border-width: 10px;
+    border-color: darkorchid; */
+    border: 20px red solid;
+    background-color: purple;
+}
