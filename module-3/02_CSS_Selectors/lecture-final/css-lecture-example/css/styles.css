@@ -1,0 +1,110 @@
+h2 {
+    color: pink;
+}
+
+body {
+    background-color: #f42a2a;
+}
+
+header {
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+main {
+    
+    text-align: center;
+}
+
+img {
+    border: solid black 15px;
+    max-width: 400px;
+}
+
+section {
+    text-align: left;
+}
+
+table {
+    border: solid black 2px;
+}
+
+th {
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+td {
+    width: 200px;
+    font-size: 25px;
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+blockquote {
+    font-size: 25px;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+a {
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+* {
+    color:  pink;
+}
+
+h1 {
+    color: green;
+}
+
+#facts-section {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.white-border {
+    border: solid 2px white;
+}
+
+.italics {
+    font-style: italic;
+}
+
+a#link-1 {
+    color: blue;
+}
+
+h1.italics {
+    font-size: 100px;
+}
+
+#quote-one, #quote-three {
+    background-color: grey;
+}
+
+/* ul > li {
+    background-color: yellow;
+} */
+
+ul a {
+    background-color: yellow;
+}
+
+/* [anything] {
+    background-color: white;
+} */
+
+/* [anything=italic] {
+    background-color: white; */
+/* } */
+
+blockquote:hover {
+    background-color: lightskyblue;
+}

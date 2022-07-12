@@ -1,0 +1,110 @@
+.mainboxarea {
+    margin-top: 100px;
+    width: 600px;
+    height: 3000px;
+    background-color: gray;
+}
+
+.mainspan { 
+    display: inline-block;
+    background-color: rgba(51, 102, 255, .2);
+    
+    width: 70%;
+    height:20%;
+}
+
+
+.relpos {
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+.abspos {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.fixedpos {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+}
+
+body {
+    font-size: 30px;
+}
+
+.hide {
+    display: none;
+}
+
+
+#box-model-example {
+    background-color: darkgreen;
+    border: 2px solid black;
+    height: 500px;
+    width: 500px;
+}
+
+#text-box {
+    background-color: darkseagreen;
+    /* margin: 10px 10px 10px 10px; */
+}
+
+#other-box {
+    background-color:aquamarine;  
+}
+
+#original {
+    /* display: block; */
+}
+
+#other {
+    font-size: 3rem;
+    /* font-size: 3em; */
+}
+
+#unitexample {
+    font-size: 40px;
+}
+
+#box-demo {
+    border: 20px solid red;
+    padding: 15px;
+
+    /* all 4... top right bottom left
+    /* margin: 100px 20px  50px 10px; */
+
+    /* all sides same */
+    /* margin: 100px; */
+
+    /* top/bottom rigth/left
+    /* margin: 100px 20px; */
+
+    /* top right/left bottom */
+    /* margin: 100px 10px 10px; */
+
+    margin-top: 100px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 40px;
+
+    border-width: 20px 5px;
+}
+
+span {
+    /* display: block; */
+}
+
+p {
+    display: inline;
+}
+
+#p2 {
+    display: none;
+    background-color: gray;
+    width: 300px;
+    /* padding: 10px; */
+}
