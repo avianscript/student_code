@@ -1,0 +1,117 @@
+
+.area-grid {
+    height: 100vh;
+    /* set display to grid */
+
+    display: grid;
+
+    /* set up column sizes */
+    grid-template-columns: 300px 1fr 300px;
+
+    /* define columns and rows */
+    grid-template-areas: 
+        "area-one area-three area-two"
+        "area-four area-four area-four"; 
+        /* ". area-four ."; */
+        
+    /* justify-items: center; */
+    /* align-items: end; */
+
+    /* for later... */
+
+    /* grid-template-rows: 1fr 3fr 1fr 5fr;
+    grid-template-areas: 
+    "area-one"
+    "area-two"
+    "area-three"
+    "area-four"; */
+
+
+    /* grid-template-columns: 3fr 1fr; 
+    grid-template-rows: 1fr 3fr 2fr;
+    grid-template-areas: 
+    "area-one area-four"
+     "area-two area-three"
+     "area-five area-five"; */
+
+    /* row-gap: 5px;
+    column-gap: 20px; */
+    gap: 5px;
+}
+
+.area {
+    font-size: 24px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+#areaone {
+    grid-area: area-one;
+    background-color: blue;
+    /* justify-self: start; */
+}
+#areatwo {
+    grid-area: area-two;
+    /* align-self: center; */
+    background-color: red;
+}
+#areathree {
+    grid-area: area-three;
+    /* align-self: end; */
+    background-color: green;
+    /* align-self: center; */
+    /* justify-self: start; */
+}
+#areafour {
+    grid-area: area-four;
+    background-color: purple;
+}
+
+#areafive {
+    grid-area: area-five;
+    background-color: yellow;
+}
+
+.justify-start {
+    justify-items: start;
+}
+
+.justify-end {
+    justify-items: end;
+}
+
+.justify-center {
+    justify-items: center;
+}
+
+.justify-stretch {
+    justify-items: stretch;
+}
+
+.align-start {
+    align-items: start;
+}
+
+.align-end {
+    align-items: end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+@media only screen and (max-width: 768px) {
+    .area-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "area-one"
+            "area-two"
+            "area-three"
+            "area-four";
+    }
+}
