@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Google Fonts</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+</head>
+
+<body class="container">
+
+    <header>
+        <div class="amatic2">Using Google Fonts</div>
+    </header>
+
+    <main class="content">
+        <section class="content-container" id="grid-unit-examples">
+
+            <section>
+                <article>
+                    <p>
+                        It's easy to include Google Fonts on your web pages. Here's how to do it...
+                    </p>
+
+                    <p>Let's start with some sample text:</p>
+                    <div class="google-fonts-text-container">
+                        Sample Text
+                    </div>
+
+                    <p>Here's the CSS for the above box:</p>
+                    <div class="codesample">
+                        <pre class="block">
+    .google-fonts-text-container {
+        border: 3px solid black;
+        padding: 10px;
+        width: 50%;
+        background-color: #ffe599;
+    }
+                        </pre>
+                    </div>
+
+                    <p>Let's change the font to a more interesting one using Google Fonts</p>
+                    <p>First, go to the <a target="_blank" href="https://fonts.google.com/">Google Fonts</a> site.</p>
+                    <p>You should see something like this:</p>
+                    <img class="with-border" src="images/google-fonts-site.jpg" />
+                    <p>You can poke around and find a font you like, but we'll use <span class="codefont">Nerko One.</span>  If you click on one of the fonts, you will see something similar to this:</p>
+                    <img class="with-border" src="images/nerko-one.jpg" />
+                    <p>Note the <span class="codefont">+ Select this style</span> button where the green arrow is pointing in the image above. (The arrow is my own addition - it wil not be on the page). If you click there, a sidebar similar to this one should open up:</p>
+                    <img class="with-border" src="images/nerko-one-sidebar.jpg" />
+                    <p>This provides you with info you need. Let's look at what's in the box under the <span class="codefont">&lt;link&gt;</span> radio button (make sure you select it).</p>
+
+                    <div class="codesample google-fonts-code-sample">
+                        <pre class="block">
+&lt;link rel="preconnect" href="https://fonts.gstatic.com"&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet"&gt; 
+                        </pre>
+                    </div>
+                    <p>The first line is used to help fonts be available as quickly as possible - you don't need to know too much about how this works but it's good to include. </p>
+                    <p>The second line is the link that actually includes the specific font you want. The <span class="codefont">family=Nerko+One</span> is the part of the link that specifies the name of the font you want to use. The plus sign in <span class="codefont">Nerko+One</span> is how you represent a space when specifying the family name. If you want to use a different font, you would substitute its name </p>
+                    <p>You should include these two link elements in the <span class="codefont">&lt;head&gt;</span> section of your HTML.</p>
+                    
+                    <p>The above works for vanilla HTML/Javascript pages but if you are using Vue you need to do this a little differently.</p>
+                    <p>In that sidebar I mentioned, the other option is <span class="codefont">@import</span></p>
+                    
+                    <img class="with-border" src="images/nerko-one-sidebar-import.jpg" />
+
+                    <p>What you see in the box there is</p>
+                    
+                    <div class="codesample google-fonts-code-sample">
+                        <pre class="block">
+    &lt;style&gt;
+        @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+    &lt;/style&gt;
+                        </pre>
+                    </div>
+
+                    <p>Notice the <span class="codefont">&lt;style&gt;</span> tag? </p>
+                    <p>You can add the <span class="codefont">@import</span> into the style section of your component or in the main component (i.e. App.vue) if you want it available to all components.</p>
+
+                    <img class="with-border" src="images/vue-home-component.jpg" />
+
+                    <p>Once you have included the link to the font, you can use it like any other font but you have to put the name in quotes. The <span class="codefont">CSS rules to specify families</span> section of the sidebar shows you an example for the font:</p>
+                    <div class="codesample google-fonts-code-sample">
+                        <pre class="single">
+    font-family: 'Nerko One', cursive;
+                        </pre>
+                    </div>
+                    <p>Let's go ahead and create a style we can use in our sample to show how to apply the font.</p>
+                    <div class="codesample google-fonts-code-sample">
+                        <pre class="block">
+    .nekro-one {
+        font-family: 'Nerko One', Helvetica, sans-serif;
+    }
+                        </pre>
+                    </div>
+                    <p>Here's what our sample looks like with the style applied:</p>
+                    <div class="google-fonts-text-container nekro-one">
+                        Sample Text
+                    </div>
+                    <p>That's all there is to it... you now have lots of great fonts at your disposal.</p>
+                </article>
+            </section>
+        </section>
+    </main>    
+    
+    <footer>
+        <div class="backbtn">
+            <i class="fas fa-backward"></i><span class="spacer"></span><a href="index.html">Back to Index</a>
+        </div>
+    </footer>
+</body>
+
+</html>

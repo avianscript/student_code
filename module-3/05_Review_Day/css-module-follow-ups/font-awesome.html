@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Font Awesome</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+</head>
+<body class="container">
+    
+            <header>
+                <div class="amatic2">Using Font Awesome</div>
+            </header>
+
+            <main class="content">
+
+            <section class="content-container" id="grid-unit-examples">
+                <article>
+                    <p>You can read the full documentation for Font Awesome
+                        <a target="_blank" href="https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use">here</a>.
+                    </p>
+                    <p class="constrain">Font Awesome provides a large collection of icons that are easy to add to your code and can be styled much the same way text can be. You can browse all the freely available Font Awesome icons <a target="_blank" href="https://fontawesome.com/icons?d=gallery&m=free">here.</a></p>
+
+                    <p>Below is an example of a Font Awesome icon. This is identified by the <span class="codefont">fa-hand-pointer</span> Font Awesome class.</p>
+                    <div id="fa-hand-pointer-img">
+                        <img src="images/font_awesome_hand_pointer-new.jpg" />
+                    </div>
+                    <p>
+                        Adding this icon to your HTML is really easy...
+                        <br><br>
+                        The first step is including the Font Awesome stylesheet in your HTML file. To do this, add the following to the <head> section of your HTML file:
+                    </p>
+                    <div class="codesample">
+                        <pre class="single">
+                            &lt;link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css"&gt;
+                        </pre>
+                    </div>
+
+                    <p class="bold-text">
+                        The above is for vanilla HTML/Javascript.
+                    </p>
+
+                    <!--
+                    <p class="bold-text">
+                        If you are using Vue, you need to do this a little differently. Click <a target="_blank" href="https://medium.com/front-end-weekly/how-to-use-fon-awesome-5-on-vuejs-project-ff0f28310821">here </a> for instructions on how to add Font Awesome to a Vue project.
+                    </p>
+                    -->
+                    
+                    <p class="bold-text">
+                        If you are using Vue, you need to do this a little differently.
+                    </p>
+
+                    <p>
+                        The first step is to add Font Awesome to your Vue project. You can use this version of npm install to do that:
+                    </p>
+                    <div class="codesample">
+                        <pre class="single">
+                            $ npm install --save-dev @fortawesome/fontawesome-free
+                        </pre>
+                    </div>
+
+                    <p>
+                        Then add these imports to your main.js
+                    </p>
+
+                    <div class="codesample">
+                        <pre class="block">
+    import '@fortawesome/fontawesome-free/css/all.css'
+    import '@fortawesome/fontawesome-free/js/all.js'
+    ...
+    // this or something similar should already be there
+    new Vue({  router,  store,  render: h => h(App),}).$mount('#app')
+                        </pre>
+                    </div>
+                    <p></p>
+                    <p>Once you have added Font Awesome, either via Vanilla Javascript or Vue, you can use Font Awesome icons in your HTML like this:</p>
+                    <div class="codesample">
+                        <pre class="single">
+                            &lt;i class="fas fa-hand-pointer"&gt;&lt;/i&gt;
+                        </pre>
+                    </div>
+
+                    <p>This code will display: <i class="fas fa-hand-pointer"></i></p>
+
+                    <p>To display a different icon, substitute the icon's <span class="codefont">&lt;i&gt;</span> tag  for  <span class="codefont">&lt;i class="fas fa-hand-pointer"&gt;&lt;/i&gt;</span>&nbsp;You can find the tag by clicking on the icon on the font awesome site and then following these steps:</p> 
+                    
+                    <div id="fa-hand-pointer-img">
+                        <img src="images/copy-fa-icon-1.jpg" />
+                    </div>
+                    <div id="fa-hand-pointer-img">
+                        <img src="images/copy-fa-icon-2.jpg" />
+                    </div>
+                    
+                </article>
+            </section>
+            </main>
+        </section>
+
+
+    </main>    
+    
+    <footer>
+        <div class="backbtn">
+            <i class="fas fa-backward"></i><span class="spacer"></span><a href="index.html">Back to Index</a>
+        </div>
+    </footer>
+</body>
+</html>

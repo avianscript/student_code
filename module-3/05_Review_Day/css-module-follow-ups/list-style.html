@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with List Styles</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+</head>
+
+<body class="container">
+
+    <header>
+        <div class="amatic2">Working with List Styles</div>
+    </header>
+
+    <main class="content">
+        <section class="content-container" id="grid-unit-examples">
+
+            <section>
+                <article>
+                    <p>
+                        There was a question about how to center bullet points along with the content of a iist. The answer to this was related to the CSS <span class="codefont">list-style</span> property. Let's look at how this property works.</p>
+                    </p>
+                    <p>The  <span class="codefont">list-style</span> property is actually shorthand for three properties. Let's look at these properties one by one.</p>
+                
+                    <p>We will use this unordered list for our examples</p>
+                    <div class="codesample list-style-code-sample">
+                        <pre class="block">
+    &lt;ul&gt;
+        &lt;li&gt;
+            Bread
+        &lt;/li&gt;
+        &lt;li&gt;
+            Milk
+        &lt;/li&gt;
+        &lt;li&gt;
+            Butter
+        &lt;/li&gt;
+    &lt;/ul&gt;
+                        </pre>
+                    </div>      
+
+                    <p>Here is what this winds up looking like:</p>
+
+                    <div>
+                        <ul>
+                            <li>
+                                Bread
+                            </li>
+                            <li>
+                                Milk
+                            </li>
+                            <li>
+                                Butter
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p>The <span class="codefont">list-style-type</span> property allows to us to modify the list item marker. To use a square rather than a bullet point we can use the following style:</p>
+
+                    <div class="codesample list-style-code-sample">
+                        <pre class="block">
+    .square-list {
+        list-style-type: square;
+    }
+                        </pre>
+                    </div>    
+
+                    <p>Now our list items are marked with squares:</p>
+
+                    <div>
+                        <ul class="square-list">
+                            <li>
+                                Bread
+                            </li>
+                            <li>
+                                Milk
+                            </li>
+                            <li>
+                                Butter
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p>There are many values you can use for the <span class="codefont">list-style-type</span> property. Here are some examples:</p>
+
+                    <div>
+                        <img src="images/list-styles.jpg" />
+                    </div>
+
+
+                    <p>Now let's look at the <span class="codefont">list-style-position</span> property. Let's change our style to align our text to the right:</p>
+
+                    <div class="codesample list-style-code-sample">
+                        <pre class="block">
+    .square-list-align-right {
+        list-style-type: square;
+        text-align: right;
+    }
+                        </pre>
+                    </div> 
+
+                    <p>Here's what our list looks like now... uh-oh!</p>
+
+                    <div>
+                        <ul class="square-list-align-right">
+                            <li>
+                                Bread
+                            </li>
+                            <li>
+                                Milk
+                            </li>
+                            <li>
+                                Butter
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p>The reason for this is the <span class="codefont">list-style-position</span> property.</p> The default for this property is <span class="codefont">outside</span>. This means that the list item markers are outside of the main text of the list, so when we specify <span class="codefont">text-align: right</span> only the text is aligned, leaving the markers left-aligned.
+
+
+                    
+
+                    <p>We can override <span class="codefont">list-style-position</span> and set it to <span class="codefont">inside</p>
+                        <div class="codesample list-style-code-sample">
+                            <pre class="block">
+    .square-list-inside-align-right {
+        list-style-type: square;
+        list-style-position: inside;
+        text-align: right;
+    }
+                            </pre>
+                        </div> 
+
+                        <p>Now our list item markers align with the text. The result below is still probably not exactly what we want but this illustrates the difference between <span class="codefont">list-style-position: outside</span> and <span class="codefont">list-style-position: inside</span></p>
+                    
+                        <div>
+                        <ul class="square-list-inside-align-right">
+                            <li>
+                                Bread
+                            </li>
+                            <li>
+                                Milk
+                            </li>
+                            <li>
+                                Butter
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p>We can use the <span class="codefont">list-style-image</span> property to specify an image for our list item marker:</p>
+                        <div class="codesample list-style-code-sample">
+                            <pre class="block">
+    
+    .image-list {
+        list-style-image: url("../images/eye-small.png");
+    }
+                            </pre>
+                        </div> 
+
+                    <p>Here's what this winds up looking like:</p>
+
+                    <div>
+                        <ul class="image-list">
+                            <li>
+                                Bread
+                            </li>
+                            <li>
+                                Milk
+                            </li>
+                            <li>
+                                Butter
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p>As mentioned before, the <span class="codefont">list-style</span> property can be used as shorthand for all these properties. You can include multiple values in this property. Here's our right aligned style rewritten with only the <span class="codefont">list-style</span> property:</p>
+                    <div class="codesample list-style-code-sample">
+                        <pre class="block">
+
+    .square-list-inside-align-right-short {
+        list-style: square inside;
+        text-align: right;
+    }
+                        </pre>
+                    </div> 
+                    
+                    <p>This looks the same as specifying <span class="codefont">list-style-type</span> and <span class="codefont">list-style-position</span> separately:</p>
+                    <ul class="square-list-inside-align-right-short">
+                        <li>
+                            Bread
+                        </li>
+                        <li>
+                            Milk
+                        </li>
+                        <li>
+                            Butter
+                        </li>
+                    </ul>
+                </article>
+            </section>
+        </section>
+
+
+
+    </main>    
+    
+    <footer>
+        <div class="backbtn">
+            <i class="fas fa-backward"></i><span class="spacer"></span><a href="index.html">Back to Index</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
