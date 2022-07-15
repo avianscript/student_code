@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rgba Explained</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+</head>
+
+<body class="container">
+
+    <header>
+        <div class="amatic2">rgba Explained</div>
+    </header>
+
+    <main class="content">
+        <section class="content-container" id="grid-unit-examples">
+
+            <section>
+                <article>
+                    <p>
+                        The main ways we discussed to specify a color in CSS were by:
+                    </p>
+                    <ul>
+                        <li>name [i.e. <span class="codefont">pink</span>]</li>
+                        <li>hex value [i.e. <span class="codefont">#ffc0cb</span>]</li>
+                        <li>rgb value [i.e <span class="codefont">rgb(255, 192, 203)</span>]</li>
+                    </ul>
+
+                    <p>There are, however, some other options for how to specify color, including rgba.</p>
+                    <p>rgba woks the same way as rgb but adds an additional parameter (referred to as the alpha value) for opacity.</p>
+
+                    <p>Let's see how this works...</p>
+
+                    <p>The example below uses these styles:</p>
+
+                    <div class="codesample list-style-code-sample">
+                        <pre class="block">            
+    .box-rgba {
+        background-color: blueviolet;
+        color: white;
+        text-align: center;
+        padding: 15px 5px;
+        margin: 1px;
+        font-size: 40px;
+    }
+    
+    .box-rgb-inner {
+        background-color: rgb(139, 0, 0);
+        display: inline-block;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        left: -50px;
+    }
+                        </pre>
+                    </div>
+    <p>The HTML we are using looks like this:</p>
+
+
+    <div class="codesample rgba-code-sample">
+        <pre class="block"> 
+    &lt;div&gt;
+        &lt;span class="box-rgba"&gt;Hello!&lt;/span&gt;
+        &lt;span class="box-rgba-inner"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+        </pre>
+    </div>
+
+    <p>Here's what this looks like:</p>
+
+                    <div>
+                        <span class="box-rgba">Hello!</span>
+                        <span class="box-rgb-inner"></span>
+                    </div>
+
+                    <br>
+                    <p>The red box uses a relative position and specifies its left coordinate as -50px, which effectively puts it on top of the purple box.</p>
+
+                    <p>Now let's create an additional style class and use that class for the inner box instead of <span class="codefont">box-rgb-inner</span>.</p>
+                    
+                    <div class="codesample list-style-code-sample">
+                        <pre class="block">
+    
+    .box-rgba-inner {
+        background-color: rgb(139, 0, 0, .50);
+        display: inline-block;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        left: -50px;
+    }
+                        </pre>
+                    </div>
+
+                    <p>Here's what we see now:</p>
+                    
+                    <div>
+                        <span class="box-rgba">Hello!</span>
+                        <span class="box-rgba-inner"></span>
+                    </div>
+
+                    <br>
+
+                    <p>Notice that you can now see through the red box to what's below it. In the style above we used <span class="codefont">rgba</span> rather than <span class="codefont">rgb</span> for the red box's color and specified an alpha value of <span class="codefont">.50</span>, which means 50% opaque. Since it is only 50% opaque, we can see through it!</p>
+
+                    <p>You can use <span class="codefont">rgba</span> to accomplish this sort of thing. The alpha value is always a value between <span class="codefont">0</span> and <span class="codefont">1</span> which specifies the opacity of the color.</p>
+                </article>
+            </section>
+        </section>
+
+
+
+    </main>    
+    
+    <footer>
+        <div class="backbtn">
+            <i class="fas fa-backward"></i><span class="spacer"></span><a href="index.html">Back to Index</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

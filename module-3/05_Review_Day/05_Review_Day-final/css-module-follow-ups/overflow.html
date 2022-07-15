@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handling Text Overflow</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+</head>
+
+<body class="container">
+
+
+    <header>
+        <div class="amatic2">Handling Text Overflow</div>
+    </header>
+
+    <main class="content">
+        <section class="content-container" id="grid-unit-examples">
+
+            <section>
+                <article>
+                    <p>
+                        There was a question about clipping text with an ellipsis so I figured it was useful to provide
+                        some info about text overflow and some options for handling it </p>
+                    </p>
+
+                    <p>Let's look at this example:</p>
+
+                    <div class="overflowdiv" id="noOverflowDiv">
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                        beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui
+                        in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+                        quo voluptas nulla pariatur?"
+                    </div>
+
+                    <div>
+                        Here is the base CSS used in these overflow examples:
+                    </div>
+
+                    <div class="codesample">
+                        <pre class="block">
+        .overflowdiv {
+            width: 500px;
+            height: 100px;
+            border: 5px solid black;
+            background-color: #6d9eeb;
+            margin: 10px;
+        }
+        </pre>
+                    </div>
+
+                    <p></p>
+
+                    <div>
+                        As you can see, there is too much text for the width/height we have defined and the text
+                        continues outside of that area. Let's look at some options for handling this more gracefully.
+                        <p>Let's override the <span class="codefont">overflow</span> property and set it to <span
+                                class="codefont">hidden</span>.</p>
+                    </div>
+
+                    <div class="codesample">
+                        <pre class="block">
+        #hiddenDiv {
+            overflow: hidden;
+        }
+        </pre>
+                    </div>
+
+
+
+                    <p></p>
+
+                    <div>
+                        As you can see this basically hides any text that would have overflowed.
+                    </div>
+
+                    <div class="overflowdiv" id="hiddenDiv">
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                        beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui
+                        in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+                        quo voluptas nulla pariatur?"
+                    </div>
+
+
+                    <div>
+                        We can set the <span class="codefont">overflow</span> property to <span
+                            class="codefont">scroll</span> to show scroll bars that will allow us to access the hidden
+                        content.</p>
+                    </div>
+
+                    <div class="codesample">
+                        <pre class="block">
+        #scrollDiv {
+            overflow: scroll;
+        }
+        </pre>
+                    </div>
+
+                    <div>
+                        Now we can access the text that would have overflowed using the scrool bar.
+                    </div>
+
+                    <div class="overflowdiv" id="scrollDiv">
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                        beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui
+                        in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+                        quo voluptas nulla pariatur?"
+                    </div>
+
+                    <div>
+                        But in this case, we maty have scroll bars in both directions, depending on the browser and operating system, and we only need them in the vertical
+                        direction. We can set the <span class="codefont">overflow</span> property to <span
+                            class="codefont">auto</span> to show scroll bars that will allow us to access the hidden
+                        content, but only if needed.</p>
+                    </div>
+
+                    <div class="codesample">
+                        <pre class="block">
+        #autoDiv {
+            overflow: auto;
+        }
+        </pre>
+                    </div>
+
+                    <div>
+                        Now scroll bars will be added only when content overflows - hortizontally, vertically, or in
+                        both directions.
+                    </div>
+
+                    <div class="overflowdiv" id="autoDiv">
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                        beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui
+                        in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+                        quo voluptas nulla pariatur?"
+                    </div>
+
+                    <div>
+                        Sometimes, we might not want our text to wrap. If we want to prevent word wrap, we can set the
+                        <span class="codefont">white-space</span> property to <span class="codefont">nowrap</span>.
+                    </div>
+
+
+
+                    <div class="codesample">
+                        <pre class="block">
+        #noWrapDiv {
+            overflow: auto;
+            white-space: nowrap;
+            height: 40px;
+        }
+        </pre>
+                    </div>
+
+
+                    <div>
+                        The style above prevents word wrap and also reduces the height of the element so it only holds
+                        one line. You can see that we have left <span class="codefont">overflow</span> as <span
+                            class="codefont">auto</span> to allow scrolling of the text that overflows.
+                    </div>
+
+                    <div class="overflowdiv" id="noWrapDiv">
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                        beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui
+                        in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+                        quo voluptas nulla pariatur?"
+                    </div>
+
+                    <div>
+                        Which FINALLY brings us to the answer to the original question about truncating text with an
+                        ellipsis. We can accomplish this by adding the <span class="codefont">text-overflow:
+                            ellipsis</span> property.
+                    </div>
+
+                    <div class="codesample">
+                        <pre class="block">
+        #ellipsisDiv {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        </pre>
+                    </div>
+
+                    <div>
+                        As you can see below, the text has been truncated with an ellipsis at the edge of the element.
+                        Notice though that we are still using <span class="codefont">white-space: nowrap</span> in our
+                        style. Unfortunately, truncating in this way using just the properties we have discussed
+                        requires the text to not be wrapped. (It also requires the <span
+                            class="codefont">overflow</span> propety to be set to <span class="codefont">hidden</span>)
+                        It IS possible to accomplish the same thing with word wrapping but it is more complex and out of
+                        the scope of this discussion. If you'd like more info about this you can read about it <a
+                            target="_blank" href="https://css-tricks.com/line-clampin/">here</a>.
+                    </div>
+
+                    <div class="overflowdiv" id="ellipsisDiv">
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                        beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui
+                        in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+                        quo voluptas nulla pariatur?"
+                    </div>
+                </article>
+            </section>
+        </section>
+
+
+
+    </main>    
+    
+    <footer>
+        <div class="backbtn">
+            <i class="fas fa-backward"></i><span class="spacer"></span><a href="index.html">Back to Index</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
