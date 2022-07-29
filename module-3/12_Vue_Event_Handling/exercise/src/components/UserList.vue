@@ -44,7 +44,7 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
+            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" v-model="selectedUserIDs"/>
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -52,36 +52,36 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnEnableDisable">Enable or Disable</button>
+            <button class="btnEnableDisable" v-on:click="flipStatus(user.id)">{{user.status === 'Active' ? 'Disable' : 'Enable'}}</button>
           </td>
         </tr>
       </tbody>
     </table>
 
     <div class="all-actions">
-      <button>Enable Users</button>
-      <button>Disable Users</button>
-      <button>Delete Users</button>
+      <button v-bind:disabled="actionButtonDisabled" v-on:select="enableSelectedUsers(id)">Enable Users</button>
+      <button v-bind:disabled="actionButtonDisabled">Disable Users</button>
+      <button v-bind:disabled="actionButtonDisabled">Delete Users</button>
     </div>
 
-    <button>Add New User</button>
+    <button  v-on:click="showForm = true">Add New User</button>
 
-    <form id="frmAddNewUser">
+    <form id="frmAddNewUser"  v-on:submit.prevent="saveUser" v-show="showForm">
       <div class="field">
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" />
+        <input type="text" name="firstName" v-model="newUser.firstName" />
       </div>
       <div class="field">
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" />
+        <input type="text" name="lastName" v-model="newUser.lastName" />
       </div>
       <div class="field">
         <label for="username">Username:</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" v-model="newUser.username" />
       </div>
       <div class="field">
         <label for="emailAddress">Email Address:</label>
-        <input type="text" name="emailAddress" />
+        <input type="text" name="emailAddress" v-model="newUser.emailAddress"/>
       </div>
       <button type="submit" class="btn save">Save User</button>
     </form>
@@ -92,7 +92,12 @@
 export default {
   name: "user-list",
   data() {
+
     return {
+
+        showForm: false,
+        checked: false,
+
       filter: {
         firstName: "",
         lastName: "",
@@ -157,10 +162,32 @@ export default {
           emailAddress: "msmith@foo.com",
           status: "Disabled"
         }
-      ]
+      ],
+
+      selectedUserIDs: []
     };
   },
-  methods: {},
+  methods: {
+    saveUser() {
+      this.users.push(this.newUser);
+      this.resetForm();
+    },
+    resetForm() {
+      this.newUser = {};
+      this.showForm = false;
+    },
+    flipStatus(id) {
+      const user = this.users.find(curUser => curUser.id === id);
+      user.status = user.status === 'Active' ? 'Disabled' : 'Active';
+    },
+    enableSelectedUsers(id) {
+      const user = this.users.find(curUser => curUser.id === id);
+      user.status = 'Active';
+    },
+    resetCheckBoxes() {
+
+    }
+  },
   computed: {
     filteredList() {
       let filteredUsers = this.users;
@@ -198,6 +225,9 @@ export default {
         );
       }
       return filteredUsers;
+    },
+    actionButtonDisabled() {
+      return this.selectedUserIDs.length === 0;
     }
   }
 };
