@@ -15,7 +15,7 @@
       <tbody>
         <tr>
           <td>
-            <input type="checkbox" id="selectAll" />
+            <input type="checkbox" id="selectAll" v-on:change="setChecked()" v-model="checked"/>
           </td>
           <td>
             <input type="text" id="firstNameFilter" v-model="filter.firstName" />
@@ -44,7 +44,7 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" v-model="selectedUserIDs"/>
+            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" v-model="selectedUserIDs" checked/>
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -59,9 +59,9 @@
     </table>
 
     <div class="all-actions">
-      <button v-bind:disabled="actionButtonDisabled" v-on:select="enableSelectedUsers(id)">Enable Users</button>
-      <button v-bind:disabled="actionButtonDisabled">Disable Users</button>
-      <button v-bind:disabled="actionButtonDisabled">Delete Users</button>
+      <button v-bind:disabled="actionButtonDisabled" v-on:click="enableSelectedUsers(); resetCheckBoxes()">Enable Users</button>
+      <button v-bind:disabled="actionButtonDisabled" v-on:click="disableSelectedUsers(); resetCheckBoxes()">Disable Users</button>
+      <button v-bind:disabled="actionButtonDisabled" v-on:click="deleteSelectedUsers(); resetCheckBoxes()">Delete Users</button>
     </div>
 
     <button  v-on:click="showForm = true">Add New User</button>
@@ -168,6 +168,10 @@ export default {
     };
   },
   methods: {
+    selectUser(id) {
+      this.selectedUserIDs.push(id)
+    },
+
     saveUser() {
       this.users.push(this.newUser);
       this.resetForm();
@@ -180,12 +184,37 @@ export default {
       const user = this.users.find(curUser => curUser.id === id);
       user.status = user.status === 'Active' ? 'Disabled' : 'Active';
     },
-    enableSelectedUsers(id) {
-      const user = this.users.find(curUser => curUser.id === id);
-      user.status = 'Active';
+    enableSelectedUsers() {
+      this.selectedUserIDs.forEach( (selectedUserID) => {
+          const user = this.users.find(currentUser => currentUser.id === selectedUserID);
+          user.status = 'Active';
+      }) 
     },
-    resetCheckBoxes() {
+    disableSelectedUsers() {
+      this.selectedUserIDs.forEach( (selectedUserID) => {
+          const user = this.users.find(currentUser => currentUser.id === selectedUserID);
+          user.status = 'Disabled';
+      })
+    },
+    deleteSelectedUsers() {
+      this.selectedUserIDs.forEach( (selectedUserID) => {
+          // const user = this.users.find(currentUser => currentUser.id === selectedUserID);
+          this.users.splice(selectedUserID - 1);
+      })
+    },
 
+    resetCheckBoxes() {
+      this.selectedUserIDs = [];
+    },
+
+    setChecked() {
+      if (this.checked == true) {
+      this.users.forEach( (userID) => {
+        this.selectedUserIDs.push(userID.id)
+      })
+    } else {
+      this.resetCheckBoxes();
+    }
     }
   },
   computed: {
