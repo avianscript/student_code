@@ -105,6 +105,7 @@ export default new Vuex.Store({
       state.books.push(book);
     }
   },
+    
   actions: {},
   modules: {},
   strict: true
