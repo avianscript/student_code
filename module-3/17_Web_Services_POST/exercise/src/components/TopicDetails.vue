@@ -25,6 +25,7 @@
 <script>
 import topicService from "@/services/TopicService.js";
 import messageService from "@/services/MessageService.js";
+import MessageService from '../services/MessageService';
 
 export default {
   name: "topic-details",
@@ -32,7 +33,13 @@ export default {
     topicId: Number
   },
   methods: {
-    deleteMessage(id) {}
+    deleteMessage(id) {
+      MessageService.delete(id).then(response => {
+        if (response.status === 200) {
+          this.$store.commit("DELETE_MESSAGE", id);
+        }
+      })
+    }
   },
   created() {
     topicService

@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import MessageService from '../services/MessageService';
 import messageService from "../services/MessageService";
 
 export default {
@@ -35,6 +36,11 @@ export default {
         messageText: this.messageText
       };
       // call update in message service
+      MessageService.update(this.topicId, message).then(response => {
+        if (response.status === 200) {
+          this.$router.push(`/${this.topicId}`)
+        }
+      })
     }
   },
   created() {

@@ -84,9 +84,9 @@
   "messages": [
     {
       "id": 1,
-      "topicId": 15,
-      "title": "rhoncus mauris enim leo rhoncus",
-      "messageText": "metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean"
+      "topicId": 1,
+      "title": "UPDATED TEST TITLE",
+      "messageText": "UPDATED TEST MESSAGE TEXT"
     },
     {
       "id": 2,
