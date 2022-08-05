@@ -1,10 +1,6 @@
 {
   "topics": [
     {
-      "id": 5,
-      "title": "a boy was sitting"
-    },
-    {
       "id": 6,
       "title": "tellus in sagittis dui"
     },
@@ -77,12 +73,6 @@
       "topicId": 7,
       "title": "ridiculus",
       "messageText": "eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue"
-    },
-    {
-      "id": 5,
-      "topicId": 15,
-      "title": "nam dui",
-      "messageText": "elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus"
     },
     {
       "id": 8,
@@ -193,12 +183,6 @@
       "messageText": "nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a"
     },
     {
-      "id": 29,
-      "topicId": 5,
-      "title": "varius integer ac leo pellentesque",
-      "messageText": "dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo"
-    },
-    {
       "id": 30,
       "topicId": 16,
       "title": "sapien sapien non",
@@ -221,12 +205,6 @@
       "topicId": 19,
       "title": "nunc proin at turpis",
       "messageText": "in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas"
-    },
-    {
-      "id": 34,
-      "topicId": 5,
-      "title": "vestibulum rutrum",
-      "messageText": "morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer"
     },
     {
       "id": 35,
@@ -359,12 +337,6 @@
       "topicId": 11,
       "title": "amet nulla quisque arcu libero",
       "messageText": "mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis"
-    },
-    {
-      "id": 65,
-      "topicId": 6,
-      "title": "morbi non lectus",
-      "messageText": "venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue"
     },
     {
       "id": 67,
@@ -503,12 +475,6 @@
       "topicId": 19,
       "title": "morbi quis tortor id",
       "messageText": "turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris"
-    },
-    {
-      "id": 94,
-      "topicId": 5,
-      "title": "pede morbi porttitor",
-      "messageText": "iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse"
     },
     {
       "id": 95,
